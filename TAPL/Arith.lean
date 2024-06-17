@@ -32,6 +32,7 @@ def eval1 : Term → Term
 | Term.zero => Term.zero
 | Term.succ t => Term.succ (eval1 t)
 | Term.pred (Term.zero) => Term.zero
+| Term.pred (Term.succ t) => if isNumericVal t then t else Term.pred (eval1 (Term.succ t))
 | Term.pred t => Term.pred (eval1 t)
 | Term.isZero (Term.zero) => Term.true
 | Term.isZero (Term.succ _) => Term.false
