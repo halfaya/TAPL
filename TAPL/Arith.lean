@@ -13,7 +13,6 @@ deriving Repr
 def isNumericVal : Term → Bool
 | Term.zero => true
 | Term.succ t => isNumericVal t
-| Term.pred t => isNumericVal t  -- strangely Pierce omits this
 | _ => false
 
 def isVal : Term → Bool
